@@ -1,0 +1,12 @@
+ 0- 7 : Magic number "ITERFILE"
+ 8- 9 : Image width
+10-11 : Image height
+12-13 : Number of bytes per iteration value (NBYTES)
+
+IF NBYTES=2:
+14-15 : Maximum iterations
+16-   : Data (2 bytes per iteration value)
+
+IF NBYTES=4:
+14-17 : Maximum iterations
+18-   : Data (4 bytes per iteration value)
