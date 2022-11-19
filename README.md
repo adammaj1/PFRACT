@@ -1,8 +1,48 @@
 
 
 
-FRACTALS IN POLAR COORDINATES, It is fork of original code by Mika Seppä ( http://neuro.hut.fi/~mseppa/images/Fract.html )
+Fractals in polar coordinate. 
 
+It is fork of [the original code by Mika Seppä]( http://neuro.hut.fi/~mseppa/images/Fract.html)
+
+# Original description
+
+
+![FractExample1.png](/png/FractExample1.png "FractExample1")
+
+
+
+# Compilation and execution of the program
+
+[My version of the program](./src) can be compiled and run with simple 
+
+```
+make
+```
+
+Detailes are in 
+* Nash script [d.sh](./src/d.sh)
+* [Makefile](./src/Makefile)
+
+
+Original code execution: 
+
+```
+pfract -julia -cx -1.115313 -cy -0.304872 -x -0.147394 -y -0.234163 -size 1600 160 -iterations 164 -rad -8 example1.raw
+colorize example1.raw example1.ppm -fadedepth 20 -scale 1.4
+```
+
+
+
+# Files
+
+** Source code**
+* origonal , non modified files are in [src/original directory](./src/original)
+* my ( modified) files are in [src directory](./src)
+
+** Images = png files** are in [png directory](./png)
+
+** Documantation ** is in the [doc directory](./doc)
 
 
 # Git
