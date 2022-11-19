@@ -34,6 +34,10 @@ Detailes are in
 * [Makefile](./src/Makefile)
 
 
+**The problem** : my problem compiles, run, creates images, but they are all white .... 
+
+
+
 Original code execution: 
 
 ```
