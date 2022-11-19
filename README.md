@@ -5,7 +5,11 @@ Fractals in polar coordinate.
 
 It is fork of [the original code by Mika Seppä]( http://neuro.hut.fi/~mseppa/images/Fract.html)
 
-# Original description
+
+
+
+# Description
+
 
 
 ![FractExample1.png](/png/FractExample1.png "FractExample1")
@@ -19,6 +23,9 @@ It is fork of [the original code by Mika Seppä]( http://neuro.hut.fi/~mseppa/im
 ![FractExample5.png](/png/FractExample5.png "FractExample5")
 
 ![FractExample6.png](/png/FractExample6.png "FractExample6")
+
+# Exponential map and polar coordinate
+* [wikibooks](https://en.wikibooks.org/wiki/Fractals/Computer_graphic_techniques/2D/exp)
 
 
 # Compilation and execution of the program
