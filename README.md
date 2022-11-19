@@ -26,7 +26,7 @@ Modified images
 
 ![FractExample4.png](/png/example4_.png "FractExample4")
 
-![FractExample5.png](/png/eample5_.png "FractExample5")
+![FractExample5.png](/png/example5_.png "FractExample5")
 
 ![FractExample6.png](/png/example6_.png "FractExample6")
 
