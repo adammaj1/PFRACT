@@ -10,6 +10,15 @@ It is fork of [the original code by Mika Seppä]( http://neuro.hut.fi/~mseppa/im
 
 ![FractExample1.png](/png/FractExample1.png "FractExample1")
 
+![FractExample2.png](/png/FractExample2.png "FractExample2")
+
+![FractExample3.png](/png/FractExample3.png "FractExample3")
+
+![FractExample4.png](/png/FractExample4.png "FractExample4")
+
+![FractExample5.png](/png/FractExample5.png "FractExample5")
+
+![FractExample6.png](/png/FractExample6.png "FractExample6")
 
 
 # Compilation and execution of the program
