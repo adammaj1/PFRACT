@@ -49,13 +49,13 @@ colorize example1.raw example1.ppm -fadedepth 20 -scale 1.4
 
 # Files
 
-** Source code**
+**Source code**
 * origonal , non modified files are in [src/original directory](./src/original)
 * my ( modified) files are in [src directory](./src)
 
-** Images = png files** are in [png directory](./png)
+**Images = png files** are in [png directory](./png)
 
-** Documantation ** is in the [doc directory](./doc)
+**Documantation** is in the [doc directory](./doc)
 
 
 # Git
