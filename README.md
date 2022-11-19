@@ -10,19 +10,25 @@ It is fork of [the original code by Mika Seppä]( http://neuro.hut.fi/~mseppa/im
 
 # Description
 
-
+Original image 
 
 ![FractExample1.png](/png/FractExample1.png "FractExample1")
 
-![FractExample2.png](/png/FractExample2.png "FractExample2")
+Modified images 
+* crop = Cutout = cut ( defining a rectangle in pixels and choose only this rectanle, removing the other parts of an image)
 
-![FractExample3.png](/png/FractExample3.png "FractExample3")
 
-![FractExample4.png](/png/FractExample4.png "FractExample4")
+![FractExample1.png](/png/example1_.png "FractExample1")
 
-![FractExample5.png](/png/FractExample5.png "FractExample5")
+![FractExample2.png](/png/example2_.png "FractExample2")
 
-![FractExample6.png](/png/FractExample6.png "FractExample6")
+![FractExample3.png](/png/example3_.png "FractExample3")
+
+![FractExample4.png](/png/example4_.png "FractExample4")
+
+![FractExample5.png](/png/eample5_.png "FractExample5")
+
+![FractExample6.png](/png/example6_.png "FractExample6")
 
 # Exponential map and polar coordinate
 * [wikibooks](https://en.wikibooks.org/wiki/Fractals/Computer_graphic_techniques/2D/exp)
@@ -41,7 +47,7 @@ Detailes are in
 * [Makefile](./src/Makefile)
 
 
-**The problem** : my problem compiles, run, creates images, but they are all white .... 
+
 
 
 
@@ -77,6 +83,20 @@ git branch -M main
 git remote add origin git@github.com:adammaj1/PFRACT.git
 git push -u origin main
 ```
+
+
+## Repo
+* in general settings
+  * add Social Preview Image ( Images should be at least 640×320px (1280×640px for best display))
+* in repository details ( near About) add
+  * description
+  * website 
+  * Topics (separate with spaces) 
+  
+
+
+
+
 
 
 ## Subdirectory
