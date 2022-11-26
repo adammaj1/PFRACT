@@ -17,6 +17,7 @@ Original image
 Modified images 
 * crop = Cutout = cut ( defining a rectangle in pixels and choose only this rectanle, removing the other parts of an image)
 
+Julia sets
 
 ![FractExample1.png](/png/example1_.png "FractExample1")
 
@@ -26,9 +27,29 @@ Modified images
 
 ![FractExample4.png](/png/example4_.png "FractExample4")
 
+![FractExample6.png](/png/example6_.png "FractExample6")
+
+Mandelbrot set
+
 ![FractExample5.png](/png/example5_.png "FractExample5")
 
-![FractExample6.png](/png/example6_.png "FractExample6")
+New image: only one minibrot from above image, more distorted
+
+```
+xSize=8000
+ySize=800
+./pfract -x 0.360211 -y -0.684246 -size $xSize $ySize -iterations 256 -rad -10 example5.raw
+./colorize example5.raw example5.ppm -spawn -400 -scale 1.6 -fadedepth 25
+```
+ 
+![example7.png](/png/example7_.png "example7")
+
+```
+xSize=8000
+ySize=800
+./pfract -x 0.160211 -0.684246 -size $xSize $ySize -iterations 256 -rad -10 example5.raw
+./colorize example5.raw example5.ppm -spawn -400 -scale 1.6 -fadedepth 25
+```
 
 # Exponential map and polar coordinate
 * [wikibooks](https://en.wikibooks.org/wiki/Fractals/Computer_graphic_techniques/2D/exp)
@@ -43,7 +64,7 @@ make
 ```
 
 Detailes are in 
-* Nash script [d.sh](./src/d.sh)
+* Bash script [d.sh](./src/d.sh)
 * [Makefile](./src/Makefile)
 
 
@@ -70,6 +91,29 @@ colorize example1.raw example1.ppm -fadedepth 20 -scale 1.4
 
 **Documantation** is in the [doc directory](./doc)
 
+
+Raw file specification
+* binary file
+* contains data
+
+``` 
+ 0- 7 : Magic number "ITERFILE"
+ 8- 9 : Image width
+10-11 : Image height
+12-13 : Number of bytes per iteration value (NBYTES)
+
+IF NBYTES=2:
+14-15 : Maximum iterations
+16-   : Data (2 bytes per iteration value)
+
+IF NBYTES=4:
+14-17 : Maximum iterations
+18-   : Data (4 bytes per iteration value)
+```
+
+
+# To do
+* show on normal plane what part of that plane is transformed
 
 # Git
 
