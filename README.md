@@ -38,8 +38,8 @@ New image: only one minibrot from above image, more distorted
 ```
 xSize=8000
 ySize=800
-./pfract -x 0.360211 -y -0.684246 -size $xSize $ySize -iterations 256 -rad -10 example5.raw
-./colorize example5.raw example5.ppm -spawn -400 -scale 1.6 -fadedepth 25
+./pfract -x 0.360211 -y -0.684246 -size $xSize $ySize -iterations 256 -rad -10 example7.raw
+./colorize example7.raw example7.ppm -spawn -400 -scale 1.6 -fadedepth 25
 ```
  
 ![example7.png](/png/example7.png "example7")
@@ -50,6 +50,18 @@ ySize=800
 ./pfract -x 0.160211 -0.684246 -size $xSize $ySize -iterations 256 -rad -10 example5.raw
 ./colorize example5.raw example5.ppm -spawn -400 -scale 1.6 -fadedepth 25
 ```
+
+![example8.png](/png/example8.png "example8")
+
+```
+xSize=8000
+ySize=800
+./pfract -x 0.360211 -y -0.57 -size $xSize $ySize -iterations 256 -rad -10 example8.raw
+./colorize example8.raw example8.ppm -spawn -400 -scale 1.6 -fadedepth 25
+convert example8.ppm example8.png
+# crop the image with shotwell
+```
+
 
 # Exponential map and polar coordinate
 * [wikibooks](https://en.wikibooks.org/wiki/Fractals/Computer_graphic_techniques/2D/exp)
