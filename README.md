@@ -31,18 +31,10 @@ Julia sets
 
 Mandelbrot set
 
+
+Image ( example5) 
+
 ![FractExample5.png](/png/example5_.png "FractExample5")
-
-New image: only one minibrot from above image, more distorted
-
-```
-xSize=8000
-ySize=800
-./pfract -x 0.360211 -y -0.684246 -size $xSize $ySize -iterations 256 -rad -10 example7.raw
-./colorize example7.raw example7.ppm -spawn -400 -scale 1.6 -fadedepth 25
-```
- 
-![example7.png](/png/example7.png "example7")
 
 ```
 xSize=8000
@@ -50,6 +42,25 @@ ySize=800
 ./pfract -x 0.160211 -0.684246 -size $xSize $ySize -iterations 256 -rad -10 example5.raw
 ./colorize example5.raw example5.ppm -spawn -400 -scale 1.6 -fadedepth 25
 ```
+
+
+
+
+New image ( example 7): only one minibrot from above image, more distorted
+ 
+![example7.png](/png/example7.png "example7")
+
+
+```
+xSize=8000
+ySize=800
+./pfract -x 0.360211 -y -0.684246 -size $xSize $ySize -iterations 256 -rad -10 example7.raw
+./colorize example7.raw example7.ppm -spawn -400 -scale 1.6 -fadedepth 25
+```
+
+
+New image ( example 8): more cetered zoom, different diatorsion of decorations
+
 
 ![example8.png](/png/example8.png "example8")
 
