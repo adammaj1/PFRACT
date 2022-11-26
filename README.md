@@ -10,9 +10,9 @@ It is fork of [the original code by Mika Seppä]( http://neuro.hut.fi/~mseppa/im
 
 # Description
 
-Original image 
+Original image (FractExample5.png)
 
-![FractExample1.png](/png/FractExample5.png "FractExample1")
+![FractExample5.png](/png/FractExample5.png "FractExample1")
 
 Modified images 
 * crop = Cutout = cut ( defining a rectangle in pixels and choose only this rectanle, removing the other parts of an image). Why : because most of image is not interesting exterior of Mandelrots/Julia sets
@@ -21,18 +21,6 @@ Here is standard c plane ( flat image = rectangle from Cartesioan plane) with ma
 
 ![example5_flat](/png/example5_flat.png "flat")
 
-
-Julia sets ( polar images)
-
-![FractExample1.png](/png/example1_.png "FractExample1")
-
-![FractExample2.png](/png/example2_.png "FractExample2")
-
-![FractExample3.png](/png/example3_.png "FractExample3")
-
-![FractExample4.png](/png/example4_.png "FractExample4")
-
-![FractExample6.png](/png/example6_.png "FractExample6")
 
 Mandelbrot set ( polar images)
 
@@ -77,6 +65,20 @@ ySize=800
 convert example8.ppm example8.png
 # crop the image with shotwell
 ```
+
+
+Julia sets ( polar images)
+
+![FractExample1.png](/png/example1_.png "FractExample1")
+
+![FractExample2.png](/png/example2_.png "FractExample2")
+
+![FractExample3.png](/png/example3_.png "FractExample3")
+
+![FractExample4.png](/png/example4_.png "FractExample4")
+
+![FractExample6.png](/png/example6_.png "FractExample6")
+
 
 
 # Exponential map and polar coordinate
