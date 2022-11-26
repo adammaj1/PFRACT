@@ -15,9 +15,14 @@ Original image
 ![FractExample1.png](/png/FractExample1.png "FractExample1")
 
 Modified images 
-* crop = Cutout = cut ( defining a rectangle in pixels and choose only this rectanle, removing the other parts of an image)
+* crop = Cutout = cut ( defining a rectangle in pixels and choose only this rectanle, removing the other parts of an image). Why : because most of image is not interesting exterior of Mandelrots/Julia sets
 
-Julia sets
+Here is standard c plane ( flat image = rectangle from Cartesioan plane) with marked part of the plane which is showed in the polar image 
+
+![example5_flat](/png/example5_flat.png "flat")
+
+
+Julia sets ( polar images)
 
 ![FractExample1.png](/png/example1_.png "FractExample1")
 
@@ -29,7 +34,7 @@ Julia sets
 
 ![FractExample6.png](/png/example6_.png "FractExample6")
 
-Mandelbrot set
+Mandelbrot set ( polar images)
 
 
 Image ( example5) 
