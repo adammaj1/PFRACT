@@ -12,7 +12,7 @@ It is fork of [the original code by Mika Seppä]( http://neuro.hut.fi/~mseppa/im
 
 Original image 
 
-![FractExample1.png](/png/FractExample1.png "FractExample1")
+![FractExample1.png](/png/FractExample5.png "FractExample1")
 
 Modified images 
 * crop = Cutout = cut ( defining a rectangle in pixels and choose only this rectanle, removing the other parts of an image). Why : because most of image is not interesting exterior of Mandelrots/Julia sets
