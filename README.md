@@ -42,7 +42,7 @@ ySize=800
 ./colorize example5.raw example5.ppm -spawn -400 -scale 1.6 -fadedepth 25
 ```
  
-![example7.png](/png/example7_.png "example7")
+![example7.png](/png/example7.png "example7")
 
 ```
 xSize=8000
