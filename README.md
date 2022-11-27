@@ -32,7 +32,7 @@ Image ( example5)
 ```
 xSize=8000
 ySize=800
-./pfract -x 0.160211 -0.684246 -size $xSize $ySize -iterations 256 -rad -10 example5.raw
+./pfract -x 0.160211 -y -0.684246 -size $xSize $ySize -iterations 256 -rad -10 example5.raw
 ./colorize example5.raw example5.ppm -spawn -400 -scale 1.6 -fadedepth 25
 ```
 
@@ -65,6 +65,17 @@ ySize=800
 convert example8.ppm example8.png
 # crop the image with shotwell
 ```
+
+![e9.png](/png/e9.png "e9")
+
+```
+./pfract -x -1.7864402555636389  -y 0 -size $xSize $ySize -iterations 256 -rad -20 e9.raw
+./colorize e9.raw e9.ppm -spawn -400 -scale 1.6 -fadedepth 25
+convert e9.ppm e9.png
+# crop the image with shotwell
+```
+
+
 
 
 Julia sets ( polar images)
