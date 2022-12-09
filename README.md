@@ -66,7 +66,10 @@ convert example8.ppm example8.png
 # crop the image with shotwell
 ```
 
+Here is an example how number of iterations ( -iterations) can change the image: for the first one is 256 and for the second one is 20000 ( see also [commons](https://commons.wikimedia.org/wiki/File:Mandelbrot_set_exponential_mapping_c%3D-1.7864402555636389.png) and [wikibooks](https://en.wikibooks.org/wiki/Fractals/Computer_graphic_techniques/2D/exp)):
+ 
 ![e9.png](/png/e9.png "e9")
+![1.786440255563638.png](/png/1.786440255563638.png "1.786440255563638.png") 
 
 ```
 ./pfract -x -1.7864402555636389  -y 0 -size $xSize $ySize -iterations 256 -rad -20 e9.raw
@@ -74,6 +77,16 @@ convert example8.ppm example8.png
 convert e9.ppm e9.png
 # crop the image with shotwell
 ```
+
+```
+./pfract -x -1.786440255563638  -y 0 -size 2400 800 -iterations 20000 -rad -20 1.786440255563638.raw
+./colorize 1.786440255563638.raw 1.786440255563638.ppm -spawn -400 -scale 1.6 -fadedepth 25
+convert 1.786440255563638.ppm 1.786440255563638.png
+```
+
+
+
+
 
 ![1.732000000000000.png](/png/1.732000000000000.png "1.732000000000000.png")
 
