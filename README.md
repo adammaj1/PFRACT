@@ -121,8 +121,16 @@ Julia sets ( polar images)
 make
 ```
 
+or 
+
+```
+./r.sh
+```
+
 Detailes are in 
-* Bash script [d.sh](./src/d.sh)
+* Bash scripts
+  * [d.sh](./src/d.sh)
+  * [r.sh](./src/r.sh)
 * [Makefile](./src/Makefile)
 
 
