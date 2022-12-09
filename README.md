@@ -171,6 +171,8 @@ git push -u origin main
 
 
 ## Repo
+
+Change:
 * in general settings
   * add Social Preview Image ( Images should be at least 640×320px (1280×640px for best display))
 * in repository details ( near About) add
@@ -179,6 +181,11 @@ git push -u origin main
   * Topics (separate with spaces) 
   
 
+Local repository
+
+```
+/Dokumenty/algorithm/pfract
+```
 
 
 
