@@ -1,7 +1,7 @@
 
 
 
-Fractals in polar coordinate. 
+Fractals in the [polar coordinate](https://en.wikibooks.org/wiki/Fractals/Computer_graphic_techniques/2D/exp). 
 
 It is fork of [the original code by Mika Seppä]( http://neuro.hut.fi/~mseppa/images/Fract.html)
 
@@ -17,7 +17,7 @@ Original image (FractExample5.png)
 Modified images 
 * crop = Cutout = cut ( defining a rectangle in pixels and choose only this rectanle, removing the other parts of an image). Why : because most of image is not interesting exterior of Mandelrots/Julia sets
 
-Here is standard c plane ( flat image = rectangle from Cartesioan plane) with marked part of the plane which is showed in the polar image 
+Here is standard c plane ( flat image = rectangle from Cartesian plane) with marked part of the plane which is showed in the polar image 
 
 ![example5_flat](/png/example5_flat.png "flat")
 
