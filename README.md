@@ -117,6 +117,9 @@ Julia sets ( polar images)
 
 # Compilation and execution of the program
 
+
+## bash vewrion
+
 [My version of the program](./src) can be compiled and run with simple 
 
 ```
@@ -140,7 +143,7 @@ Detailes are in
 
 
 
-Original code execution: 
+## Original code execution
 
 ```
 pfract -julia -cx -1.115313 -cy -0.304872 -x -0.147394 -y -0.234163 -size 1600 160 -iterations 164 -rad -8 example1.raw
@@ -152,12 +155,12 @@ colorize example1.raw example1.ppm -fadedepth 20 -scale 1.4
 # Files
 
 **Source code**
-* origonal , non modified files are in [src/original directory](./src/original)
-* my ( modified) files are in [src directory](./src)
-
-**Images = png files** are in [png directory](./png)
-
-**Documantation** is in the [doc directory](./doc)
+* original , non modified files are in [src/original directory](./src/original)
+* my ( modified) files are in [src directory](./src/modified)
+ * [bash version](./src/modified/bash) - slightly modified
+ * [single c file the program ( sfp)](./src/modified/sfp) - change from multi (2 c files and one bash file) files program to one file program
+* **Images = png files** are in [png directory](./png)
+* **Documantation** is in the [doc directory](./doc)
 
 
 Raw file specification
@@ -186,7 +189,7 @@ IF NBYTES=4:
 * show on normal plane what part of that plane is transformed
 * make one file c program ( I think that because of short compiling and running time of original code there is noneed for dividing cration of the image into steps)
 * modify the program to show more image to the left 
-
+* make [program specification](https://pl.wikibooks.org/wiki/Programowanie/Podstawowe_konstrukcje/Dokumentowanie#Opis_programu_(_specyfikacja)) 
 
 
 
