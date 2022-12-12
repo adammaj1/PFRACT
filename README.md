@@ -131,9 +131,9 @@ or
 
 Detailes are in 
 * Bash scripts
-  * [d.sh](./src/d.sh)
-  * [r.sh](./src/r.sh)
-* [Makefile](./src/Makefile)
+  * [d.sh](./src/modified/bash/d.sh)
+  * [r.sh](./src/modified/bash/r.sh)
+* [Makefile](./src/modified/bash/Makefile)
 
 
 
@@ -246,6 +246,12 @@ to overwrite
 
 ```
 git mv -f 
+```
+
+```
+git mv ./src/*.c ./src/modified/bash/
+git mv ./src/*.sh ./src/modified/bash/
+gitt mv ./src/Makefile ./src/modified/bash/
 ```
 
 
