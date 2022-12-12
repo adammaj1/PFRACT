@@ -179,9 +179,17 @@ IF NBYTES=4:
 18-   : Data (4 bytes per iteration value)
 ```
 
+# see also
+* [Can you find the location of this fractal ?](https://fractalforums.org/fractal-programs-discussion-help-and-support/12/can-you-find-the-location-of-this-fractal/4963)
 
 # To do
 * show on normal plane what part of that plane is transformed
+* make one file c program ( I think that because of short compiling and running time of original code there is noneed for dividing cration of the image into steps)
+* modify the program to show more image to the left 
+
+
+
+
 
 # Git
 
