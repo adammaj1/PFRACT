@@ -333,15 +333,15 @@ void mandel(IVAL *data, FLOAT *origin, FLOAT *radius, int *size,
   	muly = 1.0/(FLOAT)size[1]*2.0*3.14159265;
   	
   	
-  	//fprintf(stdout, "mulx = %f \n", mulx);
-  	//fprintf(stdout, "muly = %f \n", muly);
+  	fprintf(stdout, "mulx = %f \n", mulx);
+  	fprintf(stdout, "muly = %f \n", muly);
   	
-  	
+  	fprintf(stderr, "mandel progress info\n"); // progress information
   	for(y=0;y<size[1];y++) {
     		f = (FLOAT)y*muly;
     		sf = SINF(f);
     		cf = COSF(f);
-    
+    		fprintf(stderr, " %d / %d\r", y, size[1]); // progress information
     		for(x=0;x<size[0];x++) {
       			f = EXPF((FLOAT)x*mulx+radius[0]);
       			cx = f*cf+origin[0];
@@ -354,6 +354,8 @@ void mandel(IVAL *data, FLOAT *origin, FLOAT *radius, int *size,
       				else *data++ = i;
     		} // for(x=0
   	}
+  	
+  	fprintf(stderr, " done \n"); // porgress information
 } // mandel
 
 
@@ -380,20 +382,24 @@ int  main(void ) {
   
   FLOAT   radius[2] = { -20.0, 2.0 };
   int     size[2]   = {  2400, 800 }; // Image width, Image height
-  FILE   *fop = stdout;
-  
+  FILE   *raw_file = stdout;
+  FILE  *ppm_file = stdout;
   
   IVAL    maxiter = 20000;
   int i;
   IVAL   *data = NULL, *p;
 
-  // UINT16         width, height, bytes, val16, max16;
-  //FILE          *fip = stdin, *fop = stdout;
- 
-
-
-
-
+	// colorize
+   UINT16         width, height, bytes, val16, max16;
+  
+   unsigned char  magic[MAGIC_SIZE];
+  // cscale, fadeout, fadedepth, starta, spawn
+  FLOAT          cscale = 1.5; 
+  FLOAT starta = 45.0; // -start  	: Starting color angle (0)
+  FLOAT  spawn = - 360.0; // -spawn  	: Color angle to spawn (360)
+  int            fadeout=0;
+  int  fadedepth=100;
+  unsigned char  inset[3] = { 0, 0, 0 };
   // setup 
   data = MALLOC(size[0]*size[1], IVAL);
   
@@ -409,10 +415,11 @@ int  main(void ) {
    // save data array to raw file 
   char name [100]; /* name of file */
   snprintf(name, sizeof name, "%.16f", fabs(origin[0])); /*  */
-  char *filename =strcat(name,".raw");
-  fop=fopen(filename, "wb");
-  if ( fop ==NULL)
-  	{fprintf( stderr, "ERROR saving ( cant open) file %s \n", filename); return 1;} 
+  char *raw_filename =strcat(name,".raw");
+  raw_file=fopen(raw_filename, "wb");
+  if ( raw_file ==NULL)
+  	{fprintf( stderr, "ERROR saving ( cant open) file %s \n", raw_filename); return 1;} 
+  	else { fprintf(stderr, "I can open file %s for the first time\n", raw_filename);}
   	
   /*  raw file spec
   	0- 7 : Magic number "ITERFILE"
@@ -427,14 +434,18 @@ int  main(void ) {
 		14-17 : Maximum iterations
 		18-   : Data (4 bytes per iteration value)
 */	
-  fwrite(MAGIC_NUMBER, MAGIC_SIZE, 1, fop);
-  fwrite_uint16((UINT16)size[0], fop); //Image width
-  fwrite_uint16((UINT16)size[1], fop); // Image height
-  fwrite_uint16((UINT16)sizeof(IVAL), fop); // Number of bytes per iteration value (NBYTES)
-  FWRITE_IVAL(maxiter, fop); // Maximum iterations
+  fwrite(MAGIC_NUMBER, MAGIC_SIZE, 1, raw_file);
+  fwrite_uint16((UINT16)size[0], raw_file); //Image width
+  fwrite_uint16((UINT16)size[1], raw_file); // Image height
+  fwrite_uint16((UINT16)sizeof(IVAL), raw_file); // Number of bytes per iteration value (NBYTES)
+  FWRITE_IVAL(maxiter, raw_file); // Maximum iterations
   i = size[0]*size[1];
   for(p=data;i-->0;) 
-  	FWRITE_IVAL(*p++, fop); // data 
+  	FWRITE_IVAL(*p++, raw_file); // data 
+  fclose(raw_file);
+  fprintf(stderr, "file %s is closed for the first time\n", raw_filename);
+  
+  
   
   
   fprintf(stdout,"c0 = %.16f %+.16f it is origin here\n", origin[0], origin[1]);
@@ -445,28 +456,83 @@ int  main(void ) {
   
   // ./colorize example8.raw example8.ppm -spawn -400 -scale 1.6 -fadedepth 25
   
+  // open raw file for the second time for reading from it
+  raw_file = fopen(raw_filename, "rb");
+  if (raw_file==NULL) 
+  	{ fprintf(stderr, "Cannot open file %s \n", raw_filename); return 2;}
+  	else { fprintf(stderr, "I can open file %s for the second time\n", raw_filename);}
+  
+   fread(magic, MAGIC_SIZE, 1, raw_file);
+   for(i=0;i<MAGIC_SIZE;i++) if (magic[i]!=MAGIC_NUMBER[i]) 
+  	{
+    		fprintf(stderr, "%s: Error, file is not a iteration file.\n", raw_filename);
+    		exit(3);
+  	}
+
+    width  = fread_uint16(raw_file);
+    height = fread_uint16(raw_file);
+    bytes  = fread_uint16(raw_file);
+  
+  
   //open raw file
-  /*
   
-   if ((fop=fopen(argv[optind], "wb"))==NULL) {
-	    fprintf(stderr, "Cannot open file %s for writing.\n",
   
-   fread(magic, MAGIC_SIZE, 1, fip);
-  for(i=0;i<MAGIC_SIZE;i++) if (magic[i]!=MAGIC_NUMBER[i]) {
-    fprintf(stderr, "%s: Error, file is not a iteration file.\n", argv[0]);
-    exit(1);
-  }
-
-  width  = fread_uint16(fip);
-  height = fread_uint16(fip);
-  bytes  = fread_uint16(fip);
-
+   
   if (bytes!=2 && bytes!=4) {
-    fprintf(stderr, "%s: Error, wrong number per bytes (%d).\n", argv[0], bytes);
+    fprintf(stderr, "%s: Error, wrong number per bytes (%d).\n", raw_filename, bytes);
     exit(2);
   }
 
-  fprintf(fop, "P6\n%d %d\n255\n", width, height);
+
+  // binary Portable PixMap P6 with .ppm extension
+  // open file for writing to it
+  snprintf(name, sizeof name, "%.16f", fabs(origin[0])); /*  */
+  char *ppm_filename =strcat(name,".ppm");
+  ppm_file = fopen(ppm_filename, "wb");
+  if (ppm_file==NULL) 
+  	{ fprintf(stderr, "Cannot open file %s \n", ppm_filename); return 4;}
+  	else { fprintf(stderr, "I can open file %s \n", ppm_filename);}
+
+  fprintf(ppm_file, "P6\n%d %d\n255\n", width, height); // header
+  
+   max16 = fread_uint16(raw_file);
+   fprintf(stdout, "2-byte file: size %dx%d, maxiter %d\n", width, height, max16);
+   fprintf(stdout," -scale ...       : Color scale (%g)\n", cscale);
+   fprintf(stderr,"------------------------------------------------------------\n");
+    fprintf(stderr,"|                 Iteration file colorizer                 |\n");
+    fprintf(stderr,"|    (C) Mika Seppa 1996 (http://neuro.hut.fi/~mseppa/)    |\n");
+    fprintf(stderr,"------------------------------------------------------------\n");
+    fprintf(stderr,"Usage: [options] [infile.raw] [outfile.ppm]\n");
+    fprintf(stderr," -fadeout ...     : Fades out to white (%d)\n", fadeout);
+    fprintf(stderr," -fadedepth ...   : Depth of fading (%d)\n", fadedepth);
+    fprintf(stderr," -help            : This help\n");
+    fprintf(stderr," -info            : Show information about file\n");
+    fprintf(stderr," -inset .. .. ..  : Color in the set (%d,%d,%d)\n", 
+	    inset[0], inset[1], inset[2]);
+    fprintf(stderr," -scale ...       : Color scale (%g)\n", cscale);
+    fprintf(stderr," -spawn ...       : Color angle to spawn (%.0f)\n",
+	    UNIT2DEG(spawn));
+    fprintf(stderr," -start ...       : Starting color angle (%.0f)\n",
+	    UNIT2DEG(starta));
+    fprintf(stderr," --               : Use stdin instead of file\n");
+   
+   
+   map16_init(max16, cscale, fadeout, fadedepth, starta, spawn);
+   fprintf(stderr, "colorize progress info\n"); // progress information
+   for(i=width*height;i-->0;) {
+   	fprintf(stderr, " %d / %d\r", i, width*height); // progress information
+      	val16 = fread_uint16(raw_file);
+      	if (val16==max16) {
+		fputc(inset[0], ppm_file);
+		fputc(inset[1], ppm_file);
+		fputc(inset[2], ppm_file);
+      		} 
+      		else map16(val16, ppm_file);
+    }
+
+
+
+  /*
 
   switch(bytes) {
   case 2:
@@ -505,7 +571,8 @@ int  main(void ) {
   
 */
   // end 
-  
+  fclose(ppm_file); fprintf(stderr, "file %s is closed \n", ppm_filename);
+  fclose(raw_file); fprintf(stderr, "file %s is closed for the second time\n", raw_filename);
   FREE(data);
 
   exit(0);
