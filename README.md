@@ -116,9 +116,15 @@ Julia sets ( polar images)
 
 
 # Compilation and execution of the program
+## sfp
 
+Single file program ( sfp) - only 1 c file  with 250 lines: 
 
-## bash vewrion
+```c
+  gcc p.c -lm -Wall -Wextra 
+  ./a.out
+```
+## bash version
 
 [My version of the program](./src) can be compiled and run with simple 
 
@@ -187,7 +193,7 @@ IF NBYTES=4:
 
 # To do
 * show on normal plane what part of that plane is transformed
-* make one file c program ( I think that because of short compiling and running time of original code there is noneed for dividing cration of the image into steps)
+* make one file c program (sfp = Single File Program). I think that because of short compiling and running time of original code there is noneed for dividing cration of the image into steps)
 * modify the program to show more image to the left 
 * make [program specification](https://pl.wikibooks.org/wiki/Programowanie/Podstawowe_konstrukcje/Dokumentowanie#Opis_programu_(_specyfikacja)) 
 
